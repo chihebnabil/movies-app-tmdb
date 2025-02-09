@@ -1,0 +1,3 @@
+.movie-list { display: flex; flex-wrap: wrap; justify-content: space-around; }
+.movie-item { width: 200px; margin: 10px; border: 1px solid #ccc; padding: 10px; }
+.movie-item img { max-width: 100%; }

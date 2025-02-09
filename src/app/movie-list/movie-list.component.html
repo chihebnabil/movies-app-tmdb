@@ -1,0 +1,13 @@
+<h2>Popular Movies</h2>
+<div *ngIf="errorMessage">{{ errorMessage }}</div>
+<div *ngIf="loading">Loading...</div>
+<input type="text" [(ngModel)]="searchTerm" (keyup.enter)="searchMovies()">
+<div class="movie-list">
+    <div *ngFor="let movie of movies" class="movie-item">
+        <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" alt="{{ movie.title }} Poster">
+        <h3>{{ movie.title }}</h3>
+        <p>{{ movie.overview | slice:0:200 }}...</p>
+        <p>Rating: {{ movie.vote_average }}</p>
+    </div>
+</div>
+<button (click)="loadMore()">Load More</button>
