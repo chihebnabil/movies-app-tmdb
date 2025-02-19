@@ -1,0 +1,36 @@
+<h2>Template-Driven Form</h2>
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+  <div>
+    <label>Username:</label>
+    <input 
+      type="text" 
+      name="username" 
+      [(ngModel)]="model.username" 
+      required
+      minlength="3"
+    >
+    <!-- Validation Messages -->
+    <div *ngIf="form.controls['username']?.errors?.['required'] && form.controls['username']?.touched">
+      Username is required.
+    </div>
+    <div *ngIf="form.controls['username']?.errors?.['minlength']">
+      Minimum 3 characters.
+    </div>
+  </div>
+
+  <div>
+    <label>Email:</label>
+    <input 
+      type="email" 
+      name="email" 
+      [(ngModel)]="model.email" 
+      required
+      email
+    >
+    <div *ngIf="form.controls['email']?.errors?.['email']">
+      Invalid email.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>

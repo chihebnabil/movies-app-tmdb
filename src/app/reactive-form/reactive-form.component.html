@@ -1,0 +1,27 @@
+<h2>Reactive Form</h2>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Username:</label>
+    <input type="text" formControlName="username">
+    <!-- Validation Messages -->
+    <div *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched">
+      Username is required.
+    </div>
+    <div *ngIf="loginForm.get('username')?.hasError('minlength')">
+      Minimum 3 characters.
+    </div>
+  </div>
+
+  <div>
+    <label>Password:</label>
+    <input type="password" formControlName="password">
+    <div *ngIf="loginForm.get('password')?.hasError('required')">
+      Password is required.
+    </div>
+    <div *ngIf="loginForm.get('password')?.hasError('minlength')">
+      Minimum 6 characters.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="loginForm.invalid">Submit</button>
+</form>

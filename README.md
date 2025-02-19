@@ -232,3 +232,149 @@ We are using the `subscribe` method to get the data from the observable and assi
 We are using the `*ngFor` directive to iterate over the list of movies.
 
 We are using the `[]` to bind the `src` attribute to the `poster_path` property.
+
+
+## Forms
+#### types of forms
+- Template-driven forms
+- Reactive forms
+
+##### Template-driven forms
+###### Create a new component `MovieForm`
+```bash
+ng generate component movie-form
+```
+
+##### Add the form in the `MovieFormComponent`
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-movie-form',
+  templateUrl: './movie-form.component.html',
+  styleUrls: ['./movie-form.component.css']
+})
+
+export class MovieFormComponent {
+  movie = {
+    title: '',
+    overview: '',
+    release_date: '',
+    poster_path: ''
+  };
+
+  onSubmit() {
+    console.log(this.movie);
+  }
+}
+```
+
+#### add Validation to a template-driven form
+
+##### Add the required attribute to the input fields in the template `movie-form.component.html`
+```html
+<h2>Add a Movie</h2>
+
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" [(ngModel)]="movie.title" required>
+  </div>
+  <div>
+    <label for="overview">Overview</label>
+    <textarea id="overview" name="overview" [(ngModel)]="movie.overview" required></textarea>
+  </div>
+  <div>
+    <label for="release_date">Release Date</label>
+    <input type="date" id="release_date" name="release_date" [(ngModel)]="movie.release_date" required>
+  </div>
+  <div>
+    <label for="poster_path">Poster Path</label>
+    <input type="text" id="poster_path" name="poster_path" [(ngModel)]="movie.poster_path" required>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+```
+
+
+##### Add the form in the template `movie-form.component.html`
+```html
+<h2>Add a Movie</h2>
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" [(ngModel)]="movie.title">
+  </div>
+  <div>
+    <label for="overview">Overview</label>
+    <textarea id="overview" name="overview" [(ngModel)]="movie.overview"></textarea>
+  </div>
+  <div>
+    <label for="release_date">Release Date</label>
+    <input type="date" id="release_date" name="release_date" [(ngModel)]="movie.release_date">
+  </div>
+  <div>
+    <label for="poster_path">Poster Path</label>
+    <input type="text" id="poster_path" name="poster_path" [(ngModel)]="movie.poster_path">
+  </div>
+  <button type="submit">Submit</button>
+</form>
+```
+
+#### Reactive forms
+##### Create a new component `MovieFormReactive`
+```bash
+ng generate component movie-form-reactive
+```
+
+##### Add the form in the `MovieFormReactiveComponent`
+```typescript
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+
+@Component({
+  selector: 'app-movie-form-reactive',
+  templateUrl: './movie-form-reactive.component.html',
+  styleUrls: ['./movie-form-reactive.component.css']
+})
+export class MovieFormReactiveComponent {
+  movieForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.movieForm = this.fb.group({
+      title: '',
+      overview: '',
+      release_date: '',
+      poster_path: ''
+    });
+  }
+
+  onSubmit() {
+    console.log(this.movieForm.value);
+  }
+}
+```
+
+##### Add the form in the template `movie-form-reactive.component.html`
+```html
+<h2>Add a Movie</h2>
+<form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Title</label>
+    <input type="text" id="title" formControlName="title">
+  </div>
+  <div>
+    <label for="overview">Overview</label>
+    <textarea id="overview" formControlName="overview"></textarea>
+  </div>
+  <div>
+    <label for="release_date">Release Date</label>
+    <input type="date" id="release_date" formControlName="release_date">
+  </div>
+  <div>
+    <label for="poster_path">Poster Path</label>
+    <input type="text" id="poster_path" formControlName="poster_path">
+  </div>
+  <button type="submit">Submit</button>
+</form>
+```

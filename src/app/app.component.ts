@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { MovieListComponent } from './movie-list/movie-list.component';
-
+import { MovieFormComponent } from './movie-form/movie-form.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,MovieListComponent],
+  imports: [RouterOutlet,MovieFormComponent,ReactiveFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
