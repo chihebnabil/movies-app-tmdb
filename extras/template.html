@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .product-image {
+            height: 200px;
+            padding: 20px;
+            background: white;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .product-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .rating {
+            color: #f39c12;
+            margin-bottom: 15px;
+        }
+
+        .buy-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .buy-button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Featured Products</h1>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="Backpack">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">men's clothing</div>
+                    <div class="product-title">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</div>
+                    <div class="product-description">Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday</div>
+                    <div class="product-price">$109.95</div>
+                    <div class="rating">★★★★☆ (120 reviews)</div>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="T-Shirt">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">men's clothing</div>
+                    <div class="product-title">Mens Casual Premium Slim Fit T-Shirts</div>
+                    <div class="product-description">Slim-fitting style, contrast raglan long sleeve, three-button henley placket.</div>
+                    <div class="product-price">$22.30</div>
+                    <div class="rating">★★★★☆ (259 reviews)</div>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" alt="Jacket">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">men's clothing</div>
+                    <div class="product-title">Mens Cotton Jacket</div>
+                    <div class="product-description">Great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions.</div>
+                    <div class="product-price">$55.99</div>
+                    <div class="rating">★★★★☆ (500 reviews)</div>
+                    <button class="buy-button">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
